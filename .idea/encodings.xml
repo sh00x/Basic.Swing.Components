@@ -8,5 +8,6 @@
     <file url="file://$PROJECT_DIR$/src/com/company/FileChooser.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/company/Main.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/company/OptionDialogTestFrame.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/company/OwnDialogFrame.java" charset="UTF-8" />
   </component>
 </project>

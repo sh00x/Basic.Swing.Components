@@ -17,14 +17,15 @@ public class BasicComponentsOne extends JFrame {
     private final int DEFAULT_FONT_SIZE = 12;
     private final int DEFAULT_TEXT_SIZE = 28;
 
-    private final int DEFAULT_MAIN_GRID_ROWS = 8;
+    private final int DEFAULT_MAIN_GRID_ROWS = 9;
     private final int DEFAULT_MAIN_GRID_COLS = 1;
 
-    private final int BASIC_COMPONENTS_ONE = 1;
-    private final int BASIC_COMPONENTS_TWO = 2;
-    private final int BASIC_COMPONENTS_THREE = 3;
-    private final int BASIC_COMPONENTS_FOUR = 4;
+    private final int BASIC_COMPONENTS_ONE_FRAME = 1;
+    private final int BASIC_COMPONENTS_TWO_FRAME = 2;
+    private final int BASIC_COMPONENTS_THREE_FRAME = 3;
+    private final int BASIC_COMPONENTS_FOUR_FRAME = 4;
     private final int OPTION_DIALOG_TEST_FRAME = 5;
+    private final int OWN_DIALOG_WINDOW_FRAME = 6;
 
     private final String TEXT_LABEL_DESC = "Wybrany język";
     private final String STYLE_DESC = "Styl";
@@ -35,6 +36,7 @@ public class BasicComponentsOne extends JFrame {
     private final String TEXT_EDITOR_WINDOW_DESC = "Okno edytora tekstowego";
     private final String GROUP_LAYOUT_WINDOW_DESC = "Okno z rozkładem grupowym";
     private final String OPTION_DIALOG_WINDOW_DESC = "Okno wyboru okna dialogowego";
+    private final String OWN_DIALOG_WINDOW_DESC = "Własne okno dialogowe";
 
     private JLabel textLabel;
 
@@ -56,6 +58,7 @@ public class BasicComponentsOne extends JFrame {
     private JPanel textEditorPanel;
     private JPanel groupLayoutPanel;
     private JPanel optionDialogPanel;
+    private JPanel ownDialogWindowPanel;
 
 
     /**
@@ -124,24 +127,31 @@ public class BasicComponentsOne extends JFrame {
         newWindowPanel = new JPanel();
         newWindowPanel.setLayout(new FlowLayout());
 
-        addNewWindowButton(SLIDER_WINDOW_DESC, newWindowPanel, BASIC_COMPONENTS_TWO, 400, 600);
+        addNewWindowButton(SLIDER_WINDOW_DESC, newWindowPanel, BASIC_COMPONENTS_TWO_FRAME, 400, 600);
 
         //Konfiguracja panelu textEditorPanel oraz dodanie przycisku otwierajacego nowa JFrame
         textEditorPanel = new JPanel();
         textEditorPanel.setLayout(new FlowLayout());
 
-        addNewWindowButton(TEXT_EDITOR_WINDOW_DESC, textEditorPanel, BASIC_COMPONENTS_THREE, 500, 400);
+        addNewWindowButton(TEXT_EDITOR_WINDOW_DESC, textEditorPanel, BASIC_COMPONENTS_THREE_FRAME, 500, 400);
 
         //Konfiguracja panelu groupLayoutPanel, oraz dodanie przycisku otwierajacego nowa JFrame
         groupLayoutPanel = new JPanel();
         groupLayoutPanel.setLayout(new FlowLayout());
 
-        addNewWindowButton("Klient wysyłający pocztę e-mail", groupLayoutPanel, BASIC_COMPONENTS_FOUR, 531, 325);
+        addNewWindowButton("Klient wysyłający pocztę e-mail", groupLayoutPanel, BASIC_COMPONENTS_FOUR_FRAME, 531, 325);
 
         //Konfiguracja panelu optionDialogPane
         optionDialogPanel = new JPanel();
         optionDialogPanel.setLayout(new FlowLayout());
+
         addNewWindowButton(OPTION_DIALOG_WINDOW_DESC, optionDialogPanel, OPTION_DIALOG_TEST_FRAME, 600, 380);
+
+        //Konfiguracja panelu ownDialogWindowPanel
+        ownDialogWindowPanel = new JPanel();
+        ownDialogWindowPanel.setLayout(new FlowLayout());
+
+        addNewWindowButton(OWN_DIALOG_WINDOW_DESC, ownDialogWindowPanel, OWN_DIALOG_WINDOW_FRAME, 400, 400);
 
         //Ustawienie domyślnych ramek dla poszczególnych elementów
         setDefaultBorder(textLabel, TEXT_LABEL_DESC);
@@ -153,6 +163,7 @@ public class BasicComponentsOne extends JFrame {
         setDefaultBorder(textEditorPanel, TEXT_EDITOR_WINDOW_DESC);
         setDefaultBorder(groupLayoutPanel, GROUP_LAYOUT_WINDOW_DESC);
         setDefaultBorder(optionDialogPanel, OPTION_DIALOG_WINDOW_DESC);
+        setDefaultBorder(ownDialogWindowPanel, OWN_DIALOG_WINDOW_DESC);
 
         //Dodanie elementów do panelu głównego oraz JFrame
         mainPanel.add(checkBoxPanel);
@@ -163,6 +174,7 @@ public class BasicComponentsOne extends JFrame {
         mainPanel.add(textEditorPanel);
         mainPanel.add(groupLayoutPanel);
         mainPanel.add(optionDialogPanel);
+        mainPanel.add(ownDialogWindowPanel);
 
         add(mainPanel, BorderLayout.SOUTH);
     }
@@ -222,7 +234,7 @@ public class BasicComponentsOne extends JFrame {
         borderButtonGroup.add(button);
         borderPanel.add(button);
 
-        //TODO: Usprawnić tą metodę, aby nie trzeba była ręcznie za każym razem dodawać kolejnych paneli ;_;
+        //TODO: Usprawnić tą metodę, aby nie trzeba była ręcznie za każym razem dodawać kolejnych paneli ;_; Rozwiązanie jest w OptionDialogTestFrame.java
 
         ActionListener borderListener = new ActionListener() {
             @Override
@@ -236,6 +248,7 @@ public class BasicComponentsOne extends JFrame {
                 textEditorPanel.setBorder(createTitledBorder(TEXT_EDITOR_WINDOW_DESC, border));
                 groupLayoutPanel.setBorder(createTitledBorder(GROUP_LAYOUT_WINDOW_DESC, border));
                 optionDialogPanel.setBorder(createTitledBorder(OPTION_DIALOG_WINDOW_DESC, border));
+                ownDialogWindowPanel.setBorder(createTitledBorder(OWN_DIALOG_WINDOW_DESC, border));
             }
         };
 
@@ -308,11 +321,12 @@ public class BasicComponentsOne extends JFrame {
                     @Override
                     public void run() {
                         JFrame frame;
-                        if (frameNumber == BASIC_COMPONENTS_ONE) frame = new BasicComponentsOne();
-                        else if (frameNumber == BASIC_COMPONENTS_TWO) frame = new BasicComponentsTwo();
-                        else if (frameNumber == BASIC_COMPONENTS_THREE) frame = new BasicComponentsThree();
-                        else if (frameNumber == BASIC_COMPONENTS_FOUR) frame = new BasicComponentsFour();
+                        if (frameNumber == BASIC_COMPONENTS_ONE_FRAME) frame = new BasicComponentsOne();
+                        else if (frameNumber == BASIC_COMPONENTS_TWO_FRAME) frame = new BasicComponentsTwo();
+                        else if (frameNumber == BASIC_COMPONENTS_THREE_FRAME) frame = new BasicComponentsThree();
+                        else if (frameNumber == BASIC_COMPONENTS_FOUR_FRAME) frame = new BasicComponentsFour();
                         else if (frameNumber == OPTION_DIALOG_TEST_FRAME) frame = new OptionDialogTestFrame();
+                        else if (frameNumber == OWN_DIALOG_WINDOW_FRAME) frame = new OwnDialogFrame();
                         else {
                             frame = null;
                             System.err.println("Nie istnieje taka JFrame");
@@ -322,7 +336,7 @@ public class BasicComponentsOne extends JFrame {
                         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                         frame.setLocationByPlatform(true);
 
-                        if (frameNumber != BASIC_COMPONENTS_FOUR) frame.pack();
+                        if (frameNumber != BASIC_COMPONENTS_FOUR_FRAME) frame.pack();
 
                         frame.setVisible(true);
                     }
