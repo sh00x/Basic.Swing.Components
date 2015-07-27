@@ -1,6 +1,6 @@
-package com.company.app;
+package app;
 
-import com.company.basicsComponents.BasicComponentsOne;
+import basicsComponents.BasicComponentsOne;
 
 import javax.swing.*;
 import java.awt.*;

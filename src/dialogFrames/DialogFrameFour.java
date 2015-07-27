@@ -1,4 +1,4 @@
-package com.company.dialogFrames;
+package dialogFrames;
 
 /**
  * Created by Ensies on 2015-07-27.

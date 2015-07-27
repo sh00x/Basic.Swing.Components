@@ -1,4 +1,4 @@
-package com.company.dialogFrames;
+package dialogFrames;
 
 import javax.swing.*;
 import java.awt.*;

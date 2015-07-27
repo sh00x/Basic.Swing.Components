@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/src/com/company/app/Main.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/company/basicsComponents/BasicComponentsFour.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/company/basicsComponents/BasicComponentsOne.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/company/basicsComponents/BasicComponentsThree.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/company/basicsComponents/BasicComponentsTwo.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/company/basicsComponents/FileChooser.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/company/dialogFrames/DialogFrameFour.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/company/dialogFrames/DialogFrameOne.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/company/dialogFrames/DialogFrameThree.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/company/dialogFrames/DialogFrameTwo.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/company/dialogFrames/OptionDialogTestFrame.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/company/dialogFrames/OwnDialogFrame.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/app/Main.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/basicsComponents/BasicComponentsFour.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/basicsComponents/BasicComponentsOne.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/basicsComponents/BasicComponentsThree.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/basicsComponents/BasicComponentsTwo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/basicsComponents/FileChooser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/dialogFrames/DialogFrameFour.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/dialogFrames/DialogFrameOne.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/dialogFrames/DialogFrameThree.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/dialogFrames/DialogFrameTwo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/dialogFrames/OptionDialogTestFrame.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/dialogFrames/OwnDialogFrame.java" charset="UTF-8" />
   </component>
 </project>
