@@ -151,7 +151,21 @@ public class BasicComponentsOne extends JFrame {
         ownDialogWindowPanel = new JPanel();
         ownDialogWindowPanel.setLayout(new FlowLayout());
 
-        addNewWindowButton(OWN_DIALOG_WINDOW_DESC, ownDialogWindowPanel, OWN_DIALOG_WINDOW_FRAME, 400, 400);
+        JButton ownButton = new JButton(OWN_DIALOG_WINDOW_DESC);
+        ownButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EventQueue.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JDialog dialog = new OwnDialogFrame();
+                        dialog.setVisible(true);
+                    }
+                });
+            }
+        });
+
+        ownDialogWindowPanel.add(ownButton);
 
         //Ustawienie domyślnych ramek dla poszczególnych elementów
         setDefaultBorder(textLabel, TEXT_LABEL_DESC);
@@ -326,7 +340,7 @@ public class BasicComponentsOne extends JFrame {
                         else if (frameNumber == BASIC_COMPONENTS_THREE_FRAME) frame = new BasicComponentsThree();
                         else if (frameNumber == BASIC_COMPONENTS_FOUR_FRAME) frame = new BasicComponentsFour();
                         else if (frameNumber == OPTION_DIALOG_TEST_FRAME) frame = new OptionDialogTestFrame();
-                        else if (frameNumber == OWN_DIALOG_WINDOW_FRAME) frame = new OwnDialogFrame();
+                        //else if (frameNumber == OWN_DIALOG_WINDOW_FRAME) frame = new OwnDialogFrame();
                         else {
                             frame = null;
                             System.err.println("Nie istnieje taka JFrame");
