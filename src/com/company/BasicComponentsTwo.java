@@ -10,10 +10,10 @@ import java.util.Hashtable;
 
 /**
  * Klasa zawierajaca suwaki biblioteki Swing.
- * Created by £ukasz on 2015-07-19.
+ * Created by ≈Åukasz on 2015-07-19.
  */
 public class BasicComponentsTwo extends JFrame {
-    private final String TEXT_FIELD_START_VALUE = "Obecna wartoúÊ: ";
+    private final String TEXT_FIELD_START_VALUE = "Obecna warto≈õƒá: ";
 
     private JPanel sliderPanel;
     private JTextField sliderTextField;
@@ -27,7 +27,7 @@ public class BasicComponentsTwo extends JFrame {
         sliderPanel = new JPanel();
         sliderPanel.setLayout(new GridBagLayout());
 
-        //WspÛlny s≥uchacz wszystkich suwakÛw
+        //Wsp√≥lny s≈Çuchacz wszystkich suwak√≥w
         changeListener = new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
@@ -36,20 +36,20 @@ public class BasicComponentsTwo extends JFrame {
             }
         };
 
-        //Zwyk≥y suwak
+        //Zwyk≈Çy suwak
         JSlider slider = new JSlider();
 
-        addSlider(slider, "Zwyk≥y");
+        addSlider(slider, "Zwyk≈Çy");
 
-        //Suwak z podzia≥kπ
+        //Suwak z podzia≈ÇkƒÖ
         slider = new JSlider();
         slider.setPaintTicks(true);
         slider.setMajorTickSpacing(20);
         slider.setMinorTickSpacing(5);
 
-        addSlider(slider, "Podzia≥ka");
+        addSlider(slider, "Podzia≈Çka");
 
-        //Suwak z dosuwaniem ga≥ki do najbliøszej kreski
+        //Suwak z dosuwaniem ga≈Çki do najbli≈ºszej kreski
         slider = new JSlider();
         slider.setPaintTicks(true);
         slider.setSnapToTicks(true);
@@ -67,14 +67,14 @@ public class BasicComponentsTwo extends JFrame {
 
         addSlider(slider, "Bez prowadnicy");
 
-        //Suwak o odwrÛconym dzia≥aniu
+        //Suwak o odwr√≥conym dzia≈Çaniu
         slider = new JSlider();
         slider.setPaintTicks(true);
         slider.setMajorTickSpacing(20);
         slider.setMinorTickSpacing(5);
         slider.setInverted(true);
 
-        addSlider(slider, "OdwrÛcony");
+        addSlider(slider, "Odwr√≥cony");
 
         //Suwak z etykietami liczbowymi
         slider = new JSlider();
@@ -111,8 +111,8 @@ public class BasicComponentsTwo extends JFrame {
         slider.setMajorTickSpacing(20);
         slider.setMinorTickSpacing(20);
 
-        //Dodawanie obrazÛw kart
-        //TODO: Brak obrazÛw ikon
+        //Dodawanie obraz√≥w kart
+        //TODO: Brak obraz√≥w ikon
         labelTable = new Hashtable<>();
         labelTable.put(0, new JLabel(new ImageIcon("nine.gif")));
         labelTable.put(20, new JLabel(new ImageIcon("ten.gif")));
@@ -124,11 +124,11 @@ public class BasicComponentsTwo extends JFrame {
         slider.setLabelTable(labelTable);
         addSlider(slider, "Ikony");
 
-        //Pole tekstowe obrazujπce wartoúÊ i jego poczπtkowa konfiguracja
+        //Pole tekstowe obrazujƒÖce warto≈õƒá i jego poczƒÖtkowa konfiguracja
         sliderTextField = new JTextField();
         sliderTextField.setEditable(false);
         sliderTextField.setHorizontalAlignment(JTextField.CENTER);
-        sliderTextField.setText(TEXT_FIELD_START_VALUE + "[PrzesuÒ suwak]");
+        sliderTextField.setText(TEXT_FIELD_START_VALUE + "[Przesu≈Ñ suwak]");
 
         add(sliderPanel, BorderLayout.CENTER);
         add(sliderTextField, BorderLayout.SOUTH);
