@@ -30,7 +30,7 @@ public class Main {
                 }
 
                 JFrame frame = new BasicComponentsOne();
-                frame.setPreferredSize(new Dimension(500, 650));
+                frame.setPreferredSize(new Dimension(500, 700));
                 frame.setLocationByPlatform(true);
                 frame.setTitle("Basic Swing Components: Part I");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

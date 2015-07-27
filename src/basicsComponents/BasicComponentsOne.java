@@ -1,5 +1,6 @@
 package basicsComponents;
 
+import dialogFrames.DialogFrameOne;
 import dialogFrames.OptionDialogTestFrame;
 import dialogFrames.OwnDialogFrame;
 
@@ -20,7 +21,7 @@ public class BasicComponentsOne extends JFrame {
     private final int DEFAULT_FONT_SIZE = 12;
     private final int DEFAULT_TEXT_SIZE = 28;
 
-    private final int DEFAULT_MAIN_GRID_ROWS = 9;
+    private final int DEFAULT_MAIN_GRID_ROWS = 10;
     private final int DEFAULT_MAIN_GRID_COLS = 1;
 
     private final int BASIC_COMPONENTS_ONE_FRAME = 1;
@@ -181,6 +182,7 @@ public class BasicComponentsOne extends JFrame {
         moreDialogWindowsPanel = new JPanel();
         moreDialogWindowsPanel.setLayout(new FlowLayout());
 
+        addDialogButton("Wymiana danych", DIALOG_WINDOW_ONE);
 
         //Ustawienie domyślnych ramek dla poszczególnych elementów
         setDefaultBorder(textLabel, TEXT_LABEL_DESC);
@@ -205,6 +207,7 @@ public class BasicComponentsOne extends JFrame {
         mainPanel.add(groupLayoutPanel);
         mainPanel.add(optionDialogPanel);
         mainPanel.add(ownDialogWindowPanel);
+        mainPanel.add(moreDialogWindowsPanel);
 
         add(mainPanel, BorderLayout.SOUTH);
     }
@@ -282,6 +285,7 @@ public class BasicComponentsOne extends JFrame {
                 groupLayoutPanel.setBorder(createTitledBorder(GROUP_LAYOUT_WINDOW_DESC, border));
                 optionDialogPanel.setBorder(createTitledBorder(OPTION_DIALOG_WINDOW_DESC, border));
                 ownDialogWindowPanel.setBorder(createTitledBorder(OWN_DIALOG_WINDOW_DESC, border));
+                moreDialogWindowsPanel.setBorder(createTitledBorder(MORE_DIALOG_WINDOWS_DESC, border));
             }
         };
 
@@ -382,13 +386,66 @@ public class BasicComponentsOne extends JFrame {
 
     public void addDialogButton(String buttonText, int dialogNumber) {
         JButton button = new JButton(buttonText);
-        JDialog dialog;
 
-        if (dialogNumber == DIALOG_WINDOW_ONE)
+        button.addActionListener(new ActionListener() {
+            JDialog dialog;
 
-            moreDialogWindowsPanel.add(button);
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (dialogNumber == DIALOG_WINDOW_ONE) {
+                    JFrame frame = new JFrame();
+                    JPanel buttonPanel = new JPanel();
+                    JPanel textPanel = new JPanel();
 
+                    buttonPanel.setLayout(new FlowLayout());
+                    textPanel.setLayout(new GridLayout(2, 2));
 
+                    JTextField nickField = new JTextField("Nickname: ");
+                    nickField.setEditable(false);
+                    nickField.setHorizontalAlignment(JTextField.CENTER);
+
+                    JTextField passwordField = new JTextField("Password: ");
+                    passwordField.setEditable(false);
+                    passwordField.setHorizontalAlignment(JTextField.CENTER);
+
+                    JTextField nick = new JTextField("");
+                    JTextField pwd = new JTextField("");
+                    nick.setHorizontalAlignment(JTextField.CENTER);
+                    pwd.setHorizontalAlignment(JTextField.CENTER);
+                    nick.setEditable(false);
+                    pwd.setEditable(false);
+
+                    JButton enterDataButton = new JButton("Wprowadź dane");
+                    enterDataButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            dialog = new DialogFrameOne(frame);
+                            dialog.setVisible(true);
+                        }
+                    });
+
+                    buttonPanel.add(enterDataButton);
+
+                    textPanel.add(nickField);
+                    textPanel.add(nick);
+                    textPanel.add(passwordField);
+                    textPanel.add(pwd);
+
+                    frame.add(buttonPanel, BorderLayout.NORTH);
+                    frame.add(textPanel, BorderLayout.CENTER);
+
+                    frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    frame.setPreferredSize(new Dimension(300, 120));
+                    frame.setLocationByPlatform(true);
+                    frame.setTitle("Wymiana danych");
+                    frame.setResizable(false);
+                    frame.setVisible(true);
+                    frame.pack();
+                }
+            }
+        });
+
+        moreDialogWindowsPanel.add(button);
     }
 }
 

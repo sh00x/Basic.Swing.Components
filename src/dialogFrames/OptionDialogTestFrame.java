@@ -65,7 +65,7 @@ public class OptionDialogTestFrame extends JFrame {
         if(s.equals("Łańcuch")) return messageString;
         else if(s.equals("Ikona")) return messageIcon;
         else if(s.equals("Komponent")) return messageComponent;
-        else if(s.equals("Object[]")) return new Object[] {messageString, messageIcon, messageComponent, messageObject};
+        else if (s.equals("Object[]")) return new Object[]{messageString, messageIcon, messageComponent, messageObject};
         else if(s.equals("Inny")) return messageObject;
         else return null;
     }
