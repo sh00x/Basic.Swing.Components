@@ -295,9 +295,8 @@ public class BasicComponentsOne extends JFrame {
      */
 
     public Border createTitledBorder(String componentName, Border border) {
-        Border tmpBrd = BorderFactory.createTitledBorder(border, componentName,
+        return BorderFactory.createTitledBorder(border, componentName,
                 TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, mainFont);
-        return tmpBrd;
     }
 
     /**
@@ -414,11 +413,9 @@ public class BasicComponentsOne extends JFrame {
                     frame.setVisible(true);
                     frame.pack();
                 } else if (dialogNumber == DIALOG_WINDOW_TWO) {
-                    EventQueue.invokeLater(() -> new DialogFrameTwo());
+                    EventQueue.invokeLater(DialogFrameTwo::new);
                 } else if (dialogNumber == DIALOG_WINDOW_THREE) {
-                    EventQueue.invokeLater(() -> {
-                        new DialogFrameThree();
-                    });
+                    EventQueue.invokeLater(DialogFrameThree::new);
                 }
             }
         });
