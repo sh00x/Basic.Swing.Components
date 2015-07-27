@@ -1,8 +1,6 @@
 package basicsComponents;
 
-import dialogFrames.DialogFrameOne;
-import dialogFrames.OptionDialogTestFrame;
-import dialogFrames.OwnDialogFrame;
+import dialogFrames.*;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -16,25 +14,22 @@ import java.awt.event.ActionListener;
  * Created by sh00x.dev.
  */
 public class BasicComponentsOne extends JFrame {
+    //Te pola mogłyby być przeniesione do osobnej klasy, jednak jestem na to za leniwy
+    private static JTextField nick;
+    private static JTextField pwd;
     private final String DEFAULT_LANGUAGE = "Java 8";
-
     private final int DEFAULT_FONT_SIZE = 12;
     private final int DEFAULT_TEXT_SIZE = 28;
-
     private final int DEFAULT_MAIN_GRID_ROWS = 10;
     private final int DEFAULT_MAIN_GRID_COLS = 1;
-
     private final int BASIC_COMPONENTS_ONE_FRAME = 1;
     private final int BASIC_COMPONENTS_TWO_FRAME = 2;
     private final int BASIC_COMPONENTS_THREE_FRAME = 3;
     private final int BASIC_COMPONENTS_FOUR_FRAME = 4;
     private final int OPTION_DIALOG_TEST_FRAME = 5;
-
     private final int DIALOG_WINDOW_ONE = 10;
     private final int DIALOG_WINDOW_TWO = 20;
     private final int DIALOG_WINDOW_THREE = 30;
-    private final int DIALOG_WINDOW_FOUR = 40;
-
     private final String TEXT_LABEL_DESC = "Wybrany język";
     private final String STYLE_DESC = "Styl";
     private final String RADIO_BUTTON_DESC = "Wybierz język";
@@ -46,18 +41,13 @@ public class BasicComponentsOne extends JFrame {
     private final String OPTION_DIALOG_WINDOW_DESC = "Okno wyboru okna dialogowego";
     private final String OWN_DIALOG_WINDOW_DESC = "Własne okno dialogowe";
     private final String MORE_DIALOG_WINDOWS_DESC = "Dodatkowe okna dialogowe";
-
     private JLabel textLabel;
-
     private Font mainFont;
     private Font textFont;
-
     private ButtonGroup buttonGroup;
     private ButtonGroup borderButtonGroup;
-
     private JComboBox<String> faceCombo;
     private JLabel faceLabel;
-
     private JPanel mainPanel;
     private JPanel checkBoxPanel;
     private JPanel radioButtonPanel;
@@ -183,6 +173,8 @@ public class BasicComponentsOne extends JFrame {
         moreDialogWindowsPanel.setLayout(new FlowLayout());
 
         addDialogButton("Wymiana danych", DIALOG_WINDOW_ONE);
+        addDialogButton("Wybór pliku", DIALOG_WINDOW_TWO);
+        addDialogButton("Wybór koloru", DIALOG_WINDOW_THREE);
 
         //Ustawienie domyślnych ramek dla poszczególnych elementów
         setDefaultBorder(textLabel, TEXT_LABEL_DESC);
@@ -210,6 +202,14 @@ public class BasicComponentsOne extends JFrame {
         mainPanel.add(moreDialogWindowsPanel);
 
         add(mainPanel, BorderLayout.SOUTH);
+    }
+
+    public static void setNick(String text) {
+        nick.setText(text);
+    }
+
+    public static void setPwd(String text) {
+        pwd.setText(text);
     }
 
     /**
@@ -386,6 +386,8 @@ public class BasicComponentsOne extends JFrame {
 
     public void addDialogButton(String buttonText, int dialogNumber) {
         JButton button = new JButton(buttonText);
+        nick = new JTextField("");
+        pwd = new JTextField("");
 
         button.addActionListener(new ActionListener() {
             JDialog dialog;
@@ -408,14 +410,14 @@ public class BasicComponentsOne extends JFrame {
                     passwordField.setEditable(false);
                     passwordField.setHorizontalAlignment(JTextField.CENTER);
 
-                    JTextField nick = new JTextField("");
-                    JTextField pwd = new JTextField("");
                     nick.setHorizontalAlignment(JTextField.CENTER);
                     pwd.setHorizontalAlignment(JTextField.CENTER);
                     nick.setEditable(false);
                     pwd.setEditable(false);
 
                     JButton enterDataButton = new JButton("Wprowadź dane");
+                    JButton deleteDataButton = new JButton("Skasuj zawartość pól");
+
                     enterDataButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
@@ -424,7 +426,16 @@ public class BasicComponentsOne extends JFrame {
                         }
                     });
 
+                    deleteDataButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            nick.setText("");
+                            pwd.setText("");
+                        }
+                    });
+
                     buttonPanel.add(enterDataButton);
+                    buttonPanel.add(deleteDataButton);
 
                     textPanel.add(nickField);
                     textPanel.add(nick);
@@ -436,11 +447,25 @@ public class BasicComponentsOne extends JFrame {
 
                     frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                     frame.setPreferredSize(new Dimension(300, 120));
-                    frame.setLocationByPlatform(true);
+                    frame.setLocationRelativeTo(BasicComponentsOne.this);
                     frame.setTitle("Wymiana danych");
                     frame.setResizable(false);
                     frame.setVisible(true);
                     frame.pack();
+                } else if (dialogNumber == DIALOG_WINDOW_TWO) {
+                    EventQueue.invokeLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            new DialogFrameTwo();
+                        }
+                    });
+                } else if (dialogNumber == DIALOG_WINDOW_THREE) {
+                    EventQueue.invokeLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            JFrame frame = new DialogFrameThree();
+                        }
+                    });
                 }
             }
         });

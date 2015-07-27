@@ -1,7 +1,11 @@
 package dialogFrames;
 
+import basicsComponents.BasicComponentsOne;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by Ensies on 2015-07-27.
@@ -25,7 +29,7 @@ public class DialogFrameOne extends JDialog {
         dataPanel = new JPanel();
         buttonPanel = new JPanel();
 
-        confrimButton = new JButton("Potwierdź");
+        confrimButton = new JButton("Wprowadź");
         cancelButton = new JButton("Anuluj");
 
         dataPanel.setLayout(new GridLayout(2, 2));
@@ -47,6 +51,29 @@ public class DialogFrameOne extends JDialog {
         nick.setEditable(true);
         pwd.setEditable(true);
 
+        confrimButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                BasicComponentsOne.setNick(nick.getText());
+
+                char[] passwordArray = pwd.getPassword();
+                String s = new String();
+
+                for (char c : passwordArray)
+                    s += c;
+
+                BasicComponentsOne.setPwd(s);
+                dispose();
+            }
+        });
+
+        cancelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+
         dataPanel.add(nickField);
         dataPanel.add(nick);
         dataPanel.add(passwordField);
@@ -59,6 +86,8 @@ public class DialogFrameOne extends JDialog {
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
         add(mainPanel);
+
+        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setResizable(false);
         pack();
     }
