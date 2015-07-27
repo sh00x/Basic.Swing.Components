@@ -53,7 +53,7 @@ public class DialogFrameOne extends JDialog {
             BasicComponentsOne.setNick(nick.getText());
 
             char[] passwordArray = pwd.getPassword();
-            String s = new String();
+            String s = "";
 
             for (char c : passwordArray)
                 s += c;

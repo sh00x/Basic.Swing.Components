@@ -58,7 +58,7 @@ public class BasicComponentsFour extends javax.swing.JFrame {
         passwordLabel.setHorizontalAlignment(SwingConstants.CENTER);
         passwordLabel.setText("Hasło");
 
-        jPasswordField1.addActionListener(evt -> jPasswordField1ActionPerformed(evt));
+        jPasswordField1.addActionListener(this::jPasswordField1ActionPerformed);
 
         messageTextArea.setColumns(20);
         messageTextArea.setFont(new Font("Arial", 0, 12));
@@ -69,36 +69,36 @@ public class BasicComponentsFour extends javax.swing.JFrame {
         messageScrollPane.setViewportView(messageTextArea);
 
         sendButton.setText("Wyślij");
-        sendButton.addActionListener(evt -> sendMessage(evt));
+        sendButton.addActionListener(this::sendMessage);
 
         saveButton.setText("Zapisz");
 
         cancelButton.setText("Anuluj");
-        cancelButton.addActionListener(evt -> cancelSending(evt));
+        cancelButton.addActionListener(this::cancelSending);
 
         topicLabel.setHorizontalAlignment(SwingConstants.CENTER);
         topicLabel.setText("Temat");
 
-        topicTextField.addActionListener(evt -> topicActionPerformed(evt));
+        topicTextField.addActionListener(this::topicActionPerformed);
 
         attachmentTextArea.setEditable(false);
         attachmentTextArea.setColumns(15);
-        attachmentTextArea.setFont(new Font("Arial", 2, 12));
+        attachmentTextArea.setFont(new Font("Arial", Font.PLAIN, 12));
         attachmentTextArea.setRows(2);
         attachmentTextArea.setAutoscrolls(false);
         attachmentScrollPane.setViewportView(attachmentTextArea);
 
         attachmentButton.setText("Dodaj załącznik");
         attachmentButton.setPreferredSize(new Dimension(110, 20));
-        attachmentButton.addActionListener(evt -> addAttachment(evt));
+        attachmentButton.addActionListener(this::addAttachment);
 
         deleteAttachmentButton.setText("Usuń załącznik");
         deleteAttachmentButton.setPreferredSize(new Dimension(110, 20));
-        deleteAttachmentButton.addActionListener(evt -> deleteAttachment(evt));
+        deleteAttachmentButton.addActionListener(this::deleteAttachment);
 
         deleteAllAttachmentsButton.setText("Usuń wszystkie");
         deleteAllAttachmentsButton.setPreferredSize(new Dimension(110, 20));
-        deleteAllAttachmentsButton.addActionListener(evt -> deleteAllAtachments(evt));
+        deleteAllAttachmentsButton.addActionListener(this::deleteAllAtachments);
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

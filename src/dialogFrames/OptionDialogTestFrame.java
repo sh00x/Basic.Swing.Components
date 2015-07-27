@@ -62,12 +62,20 @@ public class OptionDialogTestFrame extends JFrame {
     public Object getMessage() {
         String s = messagePanel.getSelection();
 
-        if(s.equals("Łańcuch")) return messageString;
-        else if(s.equals("Ikona")) return messageIcon;
-        else if(s.equals("Komponent")) return messageComponent;
-        else if (s.equals("Object[]")) return new Object[]{messageString, messageIcon, messageComponent, messageObject};
-        else if(s.equals("Inny")) return messageObject;
-        else return null;
+        switch (s) {
+            case "Łańcuch":
+                return messageString;
+            case "Ikona":
+                return messageIcon;
+            case "Komponent":
+                return messageComponent;
+            case "Object[]":
+                return new Object[]{messageString, messageIcon, messageComponent, messageObject};
+            case "Inny":
+                return messageObject;
+            default:
+                return null;
+        }
     }
 
     /**Pobiera aktualnie wybrane opcje,
@@ -75,10 +83,16 @@ public class OptionDialogTestFrame extends JFrame {
      */
     public Object[] getOptions() {
         String s = optionsPanel.getSelection();
-        if (s.equals("String[]")) return new String[] { "Zółty", "Niebieski", "Czerwony" };
-        else if (s.equals("Icon[]")) return new Icon[] { new ImageIcon("yellow-ball.gif"), new ImageIcon("blue-ball.gif"), new ImageIcon("red_ball.gif") };
-        else if (s.equals("Object[]")) return new Object[] { messageString, messageIcon, messageComponent, messageObject };
-        else return null;
+        switch (s) {
+            case "String[]":
+                return new String[]{"Zółty", "Niebieski", "Czerwony"};
+            case "Icon[]":
+                return new Icon[]{new ImageIcon("yellow-ball.gif"), new ImageIcon("blue-ball.gif"), new ImageIcon("red_ball.gif")};
+            case "Object[]":
+                return new Object[]{messageString, messageIcon, messageComponent, messageObject};
+            default:
+                return null;
+        }
     }
 
     /**
@@ -157,7 +171,7 @@ public class OptionDialogTestFrame extends JFrame {
                 b.setActionCommand(option);
                 add(b);
                 group.add(b);
-                b.setSelected(option == options[0]);
+                b.setSelected(option.equals(options[0]));
             }
         }
 

@@ -25,7 +25,7 @@ public class DialogFrameTwo extends JFrame {
             fileChooser.showOpenDialog(getParent());
             fileChooser.setMultiSelectionEnabled(true);
 
-            builder.append(fileChooser.getSelectedFile().getPath() + "\n");
+            builder.append(fileChooser.getSelectedFile().getPath()).append("\n");
 
             pathArea.setText(builder.toString());
         });
