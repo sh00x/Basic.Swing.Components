@@ -28,6 +28,7 @@ public class BasicComponentsOne extends JFrame {
     private final int DIALOG_WINDOW_ONE = 10;
     private final int DIALOG_WINDOW_TWO = 20;
     private final int DIALOG_WINDOW_THREE = 30;
+
     private final String DEFAULT_LANGUAGE = "Java 8";
     private final String TEXT_LABEL_DESC = "Wybrany język";
     private final String STYLE_DESC = "Styl";
@@ -40,14 +41,13 @@ public class BasicComponentsOne extends JFrame {
     private final String OPTION_DIALOG_WINDOW_DESC = "Okno wyboru okna dialogowego";
     private final String OWN_DIALOG_WINDOW_DESC = "Własne okno dialogowe";
     private final String MORE_DIALOG_WINDOWS_DESC = "Dodatkowe okna dialogowe";
+
     private JLabel textLabel;
     private Font mainFont;
-    private Font textFont;
     private ButtonGroup buttonGroup;
     private ButtonGroup borderButtonGroup;
     private JComboBox<String> faceCombo;
     private JLabel faceLabel;
-    private JPanel mainPanel;
     private JPanel checkBoxPanel;
     private JPanel radioButtonPanel;
     private JPanel borderPanel;
@@ -66,7 +66,7 @@ public class BasicComponentsOne extends JFrame {
     public BasicComponentsOne() {
         //Ustawienia czcionek
         mainFont = new Font(Font.MONOSPACED, Font.PLAIN, DEFAULT_FONT_SIZE);
-        textFont = new Font("Ubuntu", Font.PLAIN, DEFAULT_TEXT_SIZE);
+        Font textFont = new Font("Ubuntu", Font.PLAIN, DEFAULT_TEXT_SIZE);
 
         //Ustawienia pola tekstowego
         textLabel = new JLabel(DEFAULT_LANGUAGE, JLabel.CENTER);
@@ -75,7 +75,7 @@ public class BasicComponentsOne extends JFrame {
         add(textLabel, BorderLayout.CENTER);
 
         //Ustawienia JPanel'u zawierającego pozostałe panele
-        mainPanel = new JPanel();
+        JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(DEFAULT_MAIN_GRID_ROWS, DEFAULT_MAIN_GRID_COLS));
 
         //Konfiguracja JChechBox

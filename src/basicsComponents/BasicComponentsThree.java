@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by sh00x on 2015-07-20.
+ * Okno prostego, niesprawnego edytora tekstowego
  */
 public class BasicComponentsThree extends JFrame {
     JMenuBar menuBar;

@@ -3,9 +3,7 @@ package dialogFrames;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Created by Ensies on 2015-07-27.
- */
+
 public class OwnDialogFrame extends JDialog {
 
     public OwnDialogFrame(JFrame owner) {

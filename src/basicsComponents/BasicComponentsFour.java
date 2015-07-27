@@ -8,24 +8,7 @@ import java.awt.event.ActionEvent;
 /**
  * Created by sh00x on 2015-07-21.
  */
-public class BasicComponentsFour extends javax.swing.JFrame {
-    private JButton sendButton;
-    private JButton saveButton;
-    private JButton cancelButton;
-    private JButton attachmentButton;
-    private JButton deleteAttachmentButton;
-    private JButton deleteAllAttachmentsButton;
-    private JLabel loginLabel;
-    private JLabel passwordLabel;
-    private JLabel topicLabel;
-    private JPasswordField jPasswordField1;
-    private JScrollPane messageScrollPane;
-    private JScrollPane attachmentScrollPane;
-    private JTextArea messageTextArea;
-    private JTextArea attachmentTextArea;
-    private JTextField loginTextField;
-    private JTextField topicTextField;
-
+public class BasicComponentsFour extends JFrame {
 
     public BasicComponentsFour() {
         initComponents();
@@ -33,22 +16,22 @@ public class BasicComponentsFour extends javax.swing.JFrame {
 
     private void initComponents() {
 
-        loginLabel = new JLabel();
-        passwordLabel = new JLabel();
-        loginTextField = new JTextField();
-        jPasswordField1 = new JPasswordField();
-        messageScrollPane = new JScrollPane();
-        messageTextArea = new JTextArea();
-        sendButton = new JButton();
-        saveButton = new JButton();
-        cancelButton = new JButton();
-        topicLabel = new JLabel();
-        topicTextField = new JTextField();
-        attachmentScrollPane = new JScrollPane();
-        attachmentTextArea = new JTextArea();
-        attachmentButton = new JButton();
-        deleteAttachmentButton = new JButton();
-        deleteAllAttachmentsButton = new JButton();
+        JLabel loginLabel = new JLabel();
+        JLabel passwordLabel = new JLabel();
+        JTextField loginTextField = new JTextField();
+        JPasswordField jPasswordField1 = new JPasswordField();
+        JScrollPane messageScrollPane = new JScrollPane();
+        JTextArea messageTextArea = new JTextArea();
+        JButton sendButton = new JButton();
+        JButton saveButton = new JButton();
+        JButton cancelButton = new JButton();
+        JLabel topicLabel = new JLabel();
+        JTextField topicTextField = new JTextField();
+        JScrollPane attachmentScrollPane = new JScrollPane();
+        JTextArea attachmentTextArea = new JTextArea();
+        JButton attachmentButton = new JButton();
+        JButton deleteAttachmentButton = new JButton();
+        JButton deleteAllAttachmentsButton = new JButton();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 

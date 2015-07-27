@@ -5,17 +5,9 @@ import basicsComponents.BasicComponentsOne;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Created by Ensies on 2015-07-27.
- */
+
 public class DialogFrameOne extends JDialog {
     private final int FIELD_LENGTH = 10;
-
-    private JPanel mainPanel;
-    private JPanel dataPanel;
-    private JPanel buttonPanel;
-    private JButton confrimButton;
-    private JButton cancelButton;
 
     public DialogFrameOne(JFrame owner) {
         super(owner, "Wprowadź dane", true);
@@ -23,12 +15,12 @@ public class DialogFrameOne extends JDialog {
         setPreferredSize(new Dimension(250, 105));
         setLocationRelativeTo(getParent());
 
-        mainPanel = new JPanel();
-        dataPanel = new JPanel();
-        buttonPanel = new JPanel();
+        JPanel mainPanel = new JPanel();
+        JPanel dataPanel = new JPanel();
+        JPanel buttonPanel = new JPanel();
 
-        confrimButton = new JButton("Wprowadź");
-        cancelButton = new JButton("Anuluj");
+        JButton confrimButton = new JButton("Wprowadź");
+        JButton cancelButton = new JButton("Anuluj");
 
         dataPanel.setLayout(new GridLayout(2, 2));
         buttonPanel.setLayout(new FlowLayout());

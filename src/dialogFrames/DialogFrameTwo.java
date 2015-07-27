@@ -9,7 +9,6 @@ import java.awt.*;
 public class DialogFrameTwo extends JFrame {
     private JTextArea pathArea;
     private JFileChooser fileChooser;
-    private JButton chooseFileButton;
 
     public DialogFrameTwo() {
         pathArea = new JTextArea("Tutaj pojawi się ściżka pliku(ów)", 10, 10);
@@ -18,7 +17,7 @@ public class DialogFrameTwo extends JFrame {
 
         StringBuilder builder = new StringBuilder();
 
-        chooseFileButton = new JButton("Wybierz plik");
+        JButton chooseFileButton = new JButton("Wybierz plik");
 
         chooseFileButton.addActionListener(e -> {
             fileChooser = new JFileChooser();
