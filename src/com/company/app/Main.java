@@ -1,10 +1,12 @@
-package com.company;
+package com.company.app;
+
+import com.company.basicsComponents.BasicComponentsOne;
 
 import javax.swing.*;
 import java.awt.*;
 
 /**
- * Klasa main programu
+ * Klasa app programu
  */
 
 public class Main {
