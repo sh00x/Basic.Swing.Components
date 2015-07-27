@@ -26,6 +26,7 @@ public class Main {
                 } catch (UnsupportedLookAndFeelException e) {
                     e.printStackTrace();
                 }
+
                 JFrame frame = new BasicComponentsOne();
                 frame.setPreferredSize(new Dimension(500, 650));
                 frame.setTitle("Basic Swing Components: Part I");

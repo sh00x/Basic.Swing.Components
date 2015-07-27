@@ -141,7 +141,7 @@ public class BasicComponentsOne extends JFrame {
         //Konfiguracja panelu optionDialogPane
         optionDialogPanel = new JPanel();
         optionDialogPanel.setLayout(new FlowLayout());
-        addNewWindowButton(OPTION_DIALOG_WINDOW_DESC, optionDialogPanel, OPTION_DIALOG_TEST_FRAME, 600, 600);
+        addNewWindowButton(OPTION_DIALOG_WINDOW_DESC, optionDialogPanel, OPTION_DIALOG_TEST_FRAME, 600, 380);
 
         //Ustawienie domyślnych ramek dla poszczególnych elementów
         setDefaultBorder(textLabel, TEXT_LABEL_DESC);
