@@ -158,7 +158,7 @@ public class BasicComponentsOne extends JFrame {
                 EventQueue.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        JDialog dialog = new OwnDialogFrame();
+                        JDialog dialog = new OwnDialogFrame(BasicComponentsOne.this);
                         dialog.setVisible(true);
                     }
                 });
