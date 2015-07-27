@@ -10,7 +10,7 @@ import java.util.Hashtable;
 
 /**
  * Klasa zawierajaca suwaki biblioteki Swing.
- * Created by Łukasz on 2015-07-19.
+ * Created by sh00x on 2015-07-19.
  */
 public class BasicComponentsTwo extends JFrame {
     private final String TEXT_FIELD_START_VALUE = "Obecna wartość: ";

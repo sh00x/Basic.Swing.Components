@@ -3,7 +3,7 @@ package com.company;
 import javax.swing.*;
 
 /**
- * Created by Łukasz on 2015-07-21.
+ * Created by sh00x on 2015-07-21.
  */
 public class FileChooser extends JFrame {
     private JFileChooser jFileChooser1;

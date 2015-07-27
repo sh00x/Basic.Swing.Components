@@ -9,7 +9,7 @@ import java.awt.geom.Rectangle2D;
 import java.util.Date;
 
 /**
- * Created by Ensies on 2015-07-27.
+ * Created by sh00x on 2015-07-27.
  */
 public class OptionDialogTestFrame extends JFrame {
 
@@ -134,7 +134,7 @@ public class OptionDialogTestFrame extends JFrame {
             g2.draw(rect);
         }
 
-        public Dimension getPrefferedSize() {
+        public Dimension getPreferredSize() {
             return new Dimension(10, 10);
         }
     }

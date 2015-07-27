@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by Łukasz on 2015-07-20.
+ * Created by sh00x on 2015-07-20.
  */
 public class BasicComponentsThree extends JFrame {
     JMenuBar menuBar;

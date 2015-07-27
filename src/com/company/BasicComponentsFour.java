@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 
 /**
- * Created by Łukasz on 2015-07-21.
+ * Created by sh00x on 2015-07-21.
  */
 public class BasicComponentsFour extends javax.swing.JFrame {
     private JButton sendButton;
