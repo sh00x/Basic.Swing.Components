@@ -159,6 +159,7 @@ public class BasicComponentsOne extends JFrame {
                     @Override
                     public void run() {
                         JDialog dialog = new OwnDialogFrame(BasicComponentsOne.this);
+                        dialog.setLocationRelativeTo(BasicComponentsOne.this);
                         dialog.setVisible(true);
                     }
                 });
@@ -340,7 +341,6 @@ public class BasicComponentsOne extends JFrame {
                         else if (frameNumber == BASIC_COMPONENTS_THREE_FRAME) frame = new BasicComponentsThree();
                         else if (frameNumber == BASIC_COMPONENTS_FOUR_FRAME) frame = new BasicComponentsFour();
                         else if (frameNumber == OPTION_DIALOG_TEST_FRAME) frame = new OptionDialogTestFrame();
-                        //else if (frameNumber == OWN_DIALOG_WINDOW_FRAME) frame = new OwnDialogFrame();
                         else {
                             frame = null;
                             System.err.println("Nie istnieje taka JFrame");
@@ -348,7 +348,7 @@ public class BasicComponentsOne extends JFrame {
                         frame.setTitle(name);
                         frame.setPreferredSize(new Dimension(sizeX, sizeY));
                         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                        frame.setLocationByPlatform(true);
+                        frame.setLocationRelativeTo(BasicComponentsOne.this);
 
                         if (frameNumber != BASIC_COMPONENTS_FOUR_FRAME) frame.pack();
 
