@@ -2,8 +2,6 @@ package dialogFrames;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Created by Ensies on 2015-07-27.
@@ -18,12 +16,7 @@ public class OwnDialogFrame extends JDialog {
         JPanel panel = new JPanel();
         JButton okButton = new JButton("OK");
 
-        okButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-            }
-        });
+        okButton.addActionListener(e -> dispose());
 
         panel.add(okButton);
         add(panel, BorderLayout.SOUTH);

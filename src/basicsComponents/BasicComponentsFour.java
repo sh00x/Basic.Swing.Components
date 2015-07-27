@@ -3,7 +3,6 @@ package basicsComponents;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 /**
@@ -59,11 +58,7 @@ public class BasicComponentsFour extends javax.swing.JFrame {
         passwordLabel.setHorizontalAlignment(SwingConstants.CENTER);
         passwordLabel.setText("Hasło");
 
-        jPasswordField1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
-            }
-        });
+        jPasswordField1.addActionListener(evt -> jPasswordField1ActionPerformed(evt));
 
         messageTextArea.setColumns(20);
         messageTextArea.setFont(new Font("Arial", 0, 12));
@@ -74,29 +69,17 @@ public class BasicComponentsFour extends javax.swing.JFrame {
         messageScrollPane.setViewportView(messageTextArea);
 
         sendButton.setText("Wyślij");
-        sendButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                sendMessage(evt);
-            }
-        });
+        sendButton.addActionListener(evt -> sendMessage(evt));
 
         saveButton.setText("Zapisz");
 
         cancelButton.setText("Anuluj");
-        cancelButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                cancelSending(evt);
-            }
-        });
+        cancelButton.addActionListener(evt -> cancelSending(evt));
 
         topicLabel.setHorizontalAlignment(SwingConstants.CENTER);
         topicLabel.setText("Temat");
 
-        topicTextField.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                topicActionPerformed(evt);
-            }
-        });
+        topicTextField.addActionListener(evt -> topicActionPerformed(evt));
 
         attachmentTextArea.setEditable(false);
         attachmentTextArea.setColumns(15);
@@ -107,29 +90,15 @@ public class BasicComponentsFour extends javax.swing.JFrame {
 
         attachmentButton.setText("Dodaj załącznik");
         attachmentButton.setPreferredSize(new Dimension(110, 20));
-        attachmentButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                addAttachment(evt);
-            }
-        });
+        attachmentButton.addActionListener(evt -> addAttachment(evt));
 
         deleteAttachmentButton.setText("Usuń załącznik");
         deleteAttachmentButton.setPreferredSize(new Dimension(110, 20));
-        deleteAttachmentButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                deleteAttachment(evt);
-            }
-        });
+        deleteAttachmentButton.addActionListener(evt -> deleteAttachment(evt));
 
         deleteAllAttachmentsButton.setText("Usuń wszystkie");
         deleteAllAttachmentsButton.setPreferredSize(new Dimension(110, 20));
-        deleteAllAttachmentsButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                deleteAllAtachments(evt);
-            }
-        });
+        deleteAllAttachmentsButton.addActionListener(evt -> deleteAllAtachments(evt));
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -244,12 +213,9 @@ public class BasicComponentsFour extends javax.swing.JFrame {
     }
 
     public void addAttachment(ActionEvent evt) {
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                JFrame frame = new FileChooser();
-                frame.setVisible(true);
-            }
+        EventQueue.invokeLater(() -> {
+            JFrame frame = new FileChooser();
+            frame.setVisible(true);
         });
     }
 

@@ -4,8 +4,6 @@ import basicsComponents.BasicComponentsOne;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Created by Ensies on 2015-07-27.
@@ -51,28 +49,20 @@ public class DialogFrameOne extends JDialog {
         nick.setEditable(true);
         pwd.setEditable(true);
 
-        confrimButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                BasicComponentsOne.setNick(nick.getText());
+        confrimButton.addActionListener(e -> {
+            BasicComponentsOne.setNick(nick.getText());
 
-                char[] passwordArray = pwd.getPassword();
-                String s = new String();
+            char[] passwordArray = pwd.getPassword();
+            String s = new String();
 
-                for (char c : passwordArray)
-                    s += c;
+            for (char c : passwordArray)
+                s += c;
 
-                BasicComponentsOne.setPwd(s);
-                dispose();
-            }
+            BasicComponentsOne.setPwd(s);
+            dispose();
         });
 
-        cancelButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-            }
-        });
+        cancelButton.addActionListener(e -> dispose());
 
         dataPanel.add(nickField);
         dataPanel.add(nick);

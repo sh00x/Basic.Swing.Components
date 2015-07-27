@@ -14,10 +14,8 @@ import java.awt.event.ActionListener;
  * Created by sh00x.dev.
  */
 public class BasicComponentsOne extends JFrame {
-    //Te pola mogłyby być przeniesione do osobnej klasy, jednak jestem na to za leniwy
     private static JTextField nick;
     private static JTextField pwd;
-    private final String DEFAULT_LANGUAGE = "Java 8";
     private final int DEFAULT_FONT_SIZE = 12;
     private final int DEFAULT_TEXT_SIZE = 28;
     private final int DEFAULT_MAIN_GRID_ROWS = 10;
@@ -30,6 +28,7 @@ public class BasicComponentsOne extends JFrame {
     private final int DIALOG_WINDOW_ONE = 10;
     private final int DIALOG_WINDOW_TWO = 20;
     private final int DIALOG_WINDOW_THREE = 30;
+    private final String DEFAULT_LANGUAGE = "Java 8";
     private final String TEXT_LABEL_DESC = "Wybrany język";
     private final String STYLE_DESC = "Styl";
     private final String RADIO_BUTTON_DESC = "Wybierz język";
@@ -152,19 +151,11 @@ public class BasicComponentsOne extends JFrame {
         ownDialogWindowPanel.setLayout(new FlowLayout());
 
         JButton ownButton = new JButton(OWN_DIALOG_WINDOW_DESC);
-        ownButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                EventQueue.invokeLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        JDialog dialog = new OwnDialogFrame(BasicComponentsOne.this);
-                        dialog.setLocationRelativeTo(BasicComponentsOne.this);
-                        dialog.setVisible(true);
-                    }
-                });
-            }
-        });
+        ownButton.addActionListener(e -> EventQueue.invokeLater(() -> {
+            JDialog dialog = new OwnDialogFrame(BasicComponentsOne.this);
+            dialog.setLocationRelativeTo(BasicComponentsOne.this);
+            dialog.setVisible(true);
+        }));
 
         ownDialogWindowPanel.add(ownButton);
 
@@ -224,12 +215,7 @@ public class BasicComponentsOne extends JFrame {
         buttonGroup.add(button);
         radioButtonPanel.add(button);
 
-        ActionListener radioListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                textLabel.setText(name);
-            }
-        };
+        ActionListener radioListener = e -> textLabel.setText(name);
 
         button.addActionListener(radioListener);
     }
@@ -244,14 +230,11 @@ public class BasicComponentsOne extends JFrame {
         JCheckBox checkBox = new JCheckBox(name);
         checkBoxPanel.add(checkBox);
 
-        ActionListener checkListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int mode = 0;
-                if (checkBox.isSelected() && checkBox.getText().toUpperCase().equals("POGRUBIENIE")) mode += Font.BOLD;
-                if (checkBox.isSelected() && checkBox.getText().toUpperCase().equals("KURSYWA")) mode += Font.ITALIC;
-                textLabel.setFont(new Font("Ubuntu", mode, DEFAULT_TEXT_SIZE));
-            }
+        ActionListener checkListener = e -> {
+            int mode = 0;
+            if (checkBox.isSelected() && checkBox.getText().toUpperCase().equals("POGRUBIENIE")) mode += Font.BOLD;
+            if (checkBox.isSelected() && checkBox.getText().toUpperCase().equals("KURSYWA")) mode += Font.ITALIC;
+            textLabel.setFont(new Font("Ubuntu", mode, DEFAULT_TEXT_SIZE));
         };
 
         checkBox.addActionListener(checkListener);
@@ -272,21 +255,18 @@ public class BasicComponentsOne extends JFrame {
 
         //TODO: Usprawnić tą metodę, aby nie trzeba była ręcznie za każym razem dodawać kolejnych paneli ;_; Rozwiązanie jest w OptionDialogTestFrame.java
 
-        ActionListener borderListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                textLabel.setBorder(createTitledBorder(TEXT_LABEL_DESC, border));
-                checkBoxPanel.setBorder(createTitledBorder(STYLE_DESC, border));
-                radioButtonPanel.setBorder(createTitledBorder(RADIO_BUTTON_DESC, border));
-                borderPanel.setBorder(createTitledBorder(BORDER_DESC, border));
-                quotePanel.setBorder(createTitledBorder(FONT_DESC, border));
-                newWindowPanel.setBorder(createTitledBorder(SLIDER_WINDOW_DESC, border));
-                textEditorPanel.setBorder(createTitledBorder(TEXT_EDITOR_WINDOW_DESC, border));
-                groupLayoutPanel.setBorder(createTitledBorder(GROUP_LAYOUT_WINDOW_DESC, border));
-                optionDialogPanel.setBorder(createTitledBorder(OPTION_DIALOG_WINDOW_DESC, border));
-                ownDialogWindowPanel.setBorder(createTitledBorder(OWN_DIALOG_WINDOW_DESC, border));
-                moreDialogWindowsPanel.setBorder(createTitledBorder(MORE_DIALOG_WINDOWS_DESC, border));
-            }
+        ActionListener borderListener = e -> {
+            textLabel.setBorder(createTitledBorder(TEXT_LABEL_DESC, border));
+            checkBoxPanel.setBorder(createTitledBorder(STYLE_DESC, border));
+            radioButtonPanel.setBorder(createTitledBorder(RADIO_BUTTON_DESC, border));
+            borderPanel.setBorder(createTitledBorder(BORDER_DESC, border));
+            quotePanel.setBorder(createTitledBorder(FONT_DESC, border));
+            newWindowPanel.setBorder(createTitledBorder(SLIDER_WINDOW_DESC, border));
+            textEditorPanel.setBorder(createTitledBorder(TEXT_EDITOR_WINDOW_DESC, border));
+            groupLayoutPanel.setBorder(createTitledBorder(GROUP_LAYOUT_WINDOW_DESC, border));
+            optionDialogPanel.setBorder(createTitledBorder(OPTION_DIALOG_WINDOW_DESC, border));
+            ownDialogWindowPanel.setBorder(createTitledBorder(OWN_DIALOG_WINDOW_DESC, border));
+            moreDialogWindowsPanel.setBorder(createTitledBorder(MORE_DIALOG_WINDOWS_DESC, border));
         };
 
         button.addActionListener(borderListener);
@@ -331,13 +311,8 @@ public class BasicComponentsOne extends JFrame {
         quotePanel.add(faceLabel);
         quotePanel.add(faceCombo);
 
-        ActionListener comboListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                faceLabel.setFont(new Font(faceCombo.getItemAt(faceCombo.getSelectedIndex()), Font.PLAIN,
-                        DEFAULT_FONT_SIZE));
-            }
-        };
+        ActionListener comboListener = e -> faceLabel.setFont(new Font(faceCombo.getItemAt(faceCombo.getSelectedIndex()), Font.PLAIN,
+                DEFAULT_FONT_SIZE));
 
         faceCombo.addActionListener(comboListener);
     }
@@ -352,34 +327,26 @@ public class BasicComponentsOne extends JFrame {
         JButton button = new JButton(name);
         panel.add(button);
 
-        ActionListener listener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                EventQueue.invokeLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        JFrame frame;
-                        if (frameNumber == BASIC_COMPONENTS_ONE_FRAME) frame = new BasicComponentsOne();
-                        else if (frameNumber == BASIC_COMPONENTS_TWO_FRAME) frame = new BasicComponentsTwo();
-                        else if (frameNumber == BASIC_COMPONENTS_THREE_FRAME) frame = new BasicComponentsThree();
-                        else if (frameNumber == BASIC_COMPONENTS_FOUR_FRAME) frame = new BasicComponentsFour();
-                        else if (frameNumber == OPTION_DIALOG_TEST_FRAME) frame = new OptionDialogTestFrame();
-                        else {
-                            frame = null;
-                            System.err.println("Nie istnieje taka JFrame");
-                        }
-                        frame.setTitle(name);
-                        frame.setPreferredSize(new Dimension(sizeX, sizeY));
-                        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                        frame.setLocationRelativeTo(BasicComponentsOne.this);
-
-                        if (frameNumber != BASIC_COMPONENTS_FOUR_FRAME) frame.pack();
-
-                        frame.setVisible(true);
-                    }
-                });
+        ActionListener listener = e -> EventQueue.invokeLater(() -> {
+            JFrame frame;
+            if (frameNumber == BASIC_COMPONENTS_ONE_FRAME) frame = new BasicComponentsOne();
+            else if (frameNumber == BASIC_COMPONENTS_TWO_FRAME) frame = new BasicComponentsTwo();
+            else if (frameNumber == BASIC_COMPONENTS_THREE_FRAME) frame = new BasicComponentsThree();
+            else if (frameNumber == BASIC_COMPONENTS_FOUR_FRAME) frame = new BasicComponentsFour();
+            else if (frameNumber == OPTION_DIALOG_TEST_FRAME) frame = new OptionDialogTestFrame();
+            else {
+                frame = null;
+                System.err.println("Nie istnieje taka JFrame");
             }
-        };
+            frame.setTitle(name);
+            frame.setPreferredSize(new Dimension(sizeX, sizeY));
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.setLocationRelativeTo(BasicComponentsOne.this);
+
+            if (frameNumber != BASIC_COMPONENTS_FOUR_FRAME) frame.pack();
+
+            frame.setVisible(true);
+        });
 
         button.addActionListener(listener);
     }
@@ -418,20 +385,14 @@ public class BasicComponentsOne extends JFrame {
                     JButton enterDataButton = new JButton("Wprowadź dane");
                     JButton deleteDataButton = new JButton("Skasuj zawartość pól");
 
-                    enterDataButton.addActionListener(new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent e) {
-                            dialog = new DialogFrameOne(frame);
-                            dialog.setVisible(true);
-                        }
+                    enterDataButton.addActionListener(e1 -> {
+                        dialog = new DialogFrameOne(frame);
+                        dialog.setVisible(true);
                     });
 
-                    deleteDataButton.addActionListener(new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent e) {
-                            nick.setText("");
-                            pwd.setText("");
-                        }
+                    deleteDataButton.addActionListener(e1 -> {
+                        nick.setText("");
+                        pwd.setText("");
                     });
 
                     buttonPanel.add(enterDataButton);
@@ -453,18 +414,10 @@ public class BasicComponentsOne extends JFrame {
                     frame.setVisible(true);
                     frame.pack();
                 } else if (dialogNumber == DIALOG_WINDOW_TWO) {
-                    EventQueue.invokeLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            new DialogFrameTwo();
-                        }
-                    });
+                    EventQueue.invokeLater(() -> new DialogFrameTwo());
                 } else if (dialogNumber == DIALOG_WINDOW_THREE) {
-                    EventQueue.invokeLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            JFrame frame = new DialogFrameThree();
-                        }
+                    EventQueue.invokeLater(() -> {
+                        new DialogFrameThree();
                     });
                 }
             }
